@@ -12,9 +12,13 @@ async function run() {
 }
 
 async function gh() {
-  const client = new github.GitHub(process.env.GITHUB_TOKEN as any);
-  const commit = await client.repos.getCommit();
-  core.debug(commit.data.commit.message);
+  const client = new github.GitHub(process.env.GITHUB_TOKEN as string);
+  const commit = await client.repos.getCommitRefSha({
+    owner: '8398a7',
+    repo: 'action-misc',
+    ref: 'a3b856494aeb9bb490c0599f976ac9c6f96f8b6a',
+  });
+  core.debug(JSON.stringify(commit.data));
 }
 
 run();
