@@ -12,7 +12,7 @@ async function run() {
 }
 
 async function gh() {
-  const client = new github.GitHub((window as any).process.env.GITHUB_TOKEN);
+  const client = new github.GitHub(process.env.GITHUB_TOKEN as any);
   const commit = await client.repos.getCommit();
   core.debug(commit.data.commit.message);
 }
