@@ -4,7 +4,9 @@ import * as github from '@actions/github';
 async function run() {
   try {
     const myInput = core.getInput('myInput');
+    const job = core.getInput('job');
     core.debug(`Hello ${myInput}`);
+    core.debug(`job: ${job}`);
     gh();
   } catch (error) {
     core.setFailed(error.message);
