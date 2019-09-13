@@ -9,7 +9,7 @@ jobs:
       - uses: 8398a7/action-misc@master
       - uses: 8398a7/action-misc@master
         with:
-          job: ${{ job }}
+          job: ${{ toJson(job) }}
   context:
     runs-on: ubuntu-latest
     steps:
